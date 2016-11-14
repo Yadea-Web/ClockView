@@ -7,4 +7,4 @@
 
 ### Demo
 
-![]()
+![](https://github.com/miss-yadi/ClockView/blob/master/loading.gif)
