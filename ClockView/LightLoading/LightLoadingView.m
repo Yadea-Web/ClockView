@@ -278,7 +278,11 @@
         zRotateAnimation.fillMode = kCAFillModeForwards;
         zRotateAnimation.removedOnCompletion = NO;
         [self.pointLayer addAnimation:zRotateAnimation forKey:@"rotateAnimation"];
+<<<<<<< HEAD
     } else {
+=======
+    } else {        
+>>>>>>> origin/master
         [CATransaction begin];
         [CATransaction setDisableActions:YES];
         self.pointLayer.affineTransform = CGAffineTransformMakeRotation(angle);
