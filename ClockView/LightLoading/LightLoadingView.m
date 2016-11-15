@@ -268,7 +268,7 @@
     UIBezierPath *pointPath = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(radius - 2, point - 2, 5, 5)];
     pointPath.lineWidth = 1.0;
     
-    if (self.animated || angle == 0) {
+    if (self.animated) {
         // 有动画
         CABasicAnimation *zRotateAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
         zRotateAnimation.fromValue = [NSNumber numberWithFloat:preAngle];
@@ -279,7 +279,12 @@
         zRotateAnimation.removedOnCompletion = NO;
         [self.pointLayer addAnimation:zRotateAnimation forKey:@"rotateAnimation"];
     } else {
+//        self.pointLayer.affineTransform = CGAffineTransformMakeRotation(angle);
+        
+        [CATransaction begin];
+        [CATransaction setDisableActions:YES];
         self.pointLayer.affineTransform = CGAffineTransformMakeRotation(angle);
+        [CATransaction commit];
     }
     self.pointLayer.path = pointPath.CGPath;
     if (!self.isInfineLoop) {

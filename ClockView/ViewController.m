@@ -57,6 +57,33 @@
     slider3.minimumTrackTintColor = [self colorWithRGBValue:0xFCD9C4];
     slider3.maximumTrackTintColor = [self colorWithRGBValue:0x8E1E20];
     [self.view addSubview:slider3];
+    
+    UIButton *button1 = [[UIButton alloc] initWithFrame:CGRectMake(20, 500, 100, 50)];
+    [button1 setTitle:@"Loading1" forState:UIControlStateNormal];
+    [button1 setTitleColor:[self colorWithRGBValue:0x008C5E] forState:UIControlStateNormal];
+    [button1 setBackgroundColor:[self colorWithRGBValue:0xC9E4DA]];
+    [button1 addTarget:self action:@selector(changeProgressView1) forControlEvents:UIControlEventTouchUpInside];
+    button1.layer.cornerRadius = 4;
+    button1.layer.masksToBounds = YES;
+    [self.view addSubview:button1];
+    
+    UIButton *button2 = [[UIButton alloc] initWithFrame:CGRectMake(130, 500, 100, 50)];
+    [button2 setTitle:@"Loading2" forState:UIControlStateNormal];
+    [button2 setTitleColor:[self colorWithRGBValue:0x103667] forState:UIControlStateNormal];
+    [button2 setBackgroundColor:[self colorWithRGBValue:0xBFCAE6]];
+    [button2 addTarget:self action:@selector(changeProgressView2) forControlEvents:UIControlEventTouchUpInside];
+    button2.layer.cornerRadius = 4;
+    button2.layer.masksToBounds = YES;
+    [self.view addSubview:button2];
+    
+    UIButton *button3 = [[UIButton alloc] initWithFrame:CGRectMake(240, 500, 100, 50)];
+    [button3 setTitle:@"Loading3" forState:UIControlStateNormal];
+    [button3 setTitleColor:[self colorWithRGBValue:0x8E1E20] forState:UIControlStateNormal];
+    [button3 setBackgroundColor:[self colorWithRGBValue:0xFCD9C4]];
+    [button3 addTarget:self action:@selector(changeProgressView3) forControlEvents:UIControlEventTouchUpInside];
+    button3.layer.cornerRadius = 4;
+    button3.layer.masksToBounds = YES;
+    [self.view addSubview:button3];
 }
 
 - (void)changeProgress {
@@ -65,7 +92,7 @@
 
 - (LightLoadingView *)lightLoading1 {
     if (!_lightLoading1) {
-        _lightLoading1 = [[LightLoadingView alloc] initLightLoadingViewWithFrame:CGRectMake(10, 10, 150, 150) tintColor:[self colorWithRGBValue:0xC9E4DA] selectedColor:[self colorWithRGBValue:0x008C5E] value:0.2 animated:YES];
+        _lightLoading1 = [[LightLoadingView alloc] initLightLoadingViewWithFrame:CGRectMake(10, 10, 150, 150) tintColor:[self colorWithRGBValue:0xC9E4DA] selectedColor:[self colorWithRGBValue:0x008C5E] value:0.2 animated:NO];
         _lightLoading1.backgroundColor = [UIColor whiteColor];
     }
     return _lightLoading1;
@@ -115,6 +142,18 @@
     } else if (slider.tag == 3) {
         [self.lightLoading3 setProgressValue:value];
     }
+}
+
+- (void)changeProgressView1 {
+    [self.lightLoading1 setProgressValue:0.1];
+}
+
+- (void)changeProgressView2 {
+    [self.lightLoading2 setProgressValue:0.7];
+}
+
+- (void)changeProgressView3 {
+    [self.lightLoading3 setProgressValue:0.8];
 }
 
 @end
