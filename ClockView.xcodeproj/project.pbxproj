@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5223B7151DDAB24000461828 /* YDSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 5223B7141DDAB24000461828 /* YDSlider.m */; };
 		5295BA581DD42AF200841725 /* LightLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5295BA571DD42AF200841725 /* LightLoadingView.m */; };
 		5297570A1DB4F249008B0E63 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 529757091DB4F249008B0E63 /* main.m */; };
 		5297570D1DB4F249008B0E63 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5297570C1DB4F249008B0E63 /* AppDelegate.m */; };
@@ -36,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5223B7131DDAB24000461828 /* YDSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDSlider.h; sourceTree = "<group>"; };
+		5223B7141DDAB24000461828 /* YDSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDSlider.m; sourceTree = "<group>"; };
 		5295BA561DD42AF200841725 /* LightLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightLoadingView.h; sourceTree = "<group>"; };
 		5295BA571DD42AF200841725 /* LightLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightLoadingView.m; sourceTree = "<group>"; };
 		529757051DB4F249008B0E63 /* ClockView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClockView.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +84,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5223B7121DDAB24000461828 /* YDSlider */ = {
+			isa = PBXGroup;
+			children = (
+				5223B7131DDAB24000461828 /* YDSlider.h */,
+				5223B7141DDAB24000461828 /* YDSlider.m */,
+			);
+			path = YDSlider;
+			sourceTree = "<group>";
+		};
 		5295BA551DD42AE200841725 /* LightLoading */ = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +125,7 @@
 		529757071DB4F249008B0E63 /* ClockView */ = {
 			isa = PBXGroup;
 			children = (
+				5223B7121DDAB24000461828 /* YDSlider */,
 				5295BA551DD42AE200841725 /* LightLoading */,
 				5297570B1DB4F249008B0E63 /* AppDelegate.h */,
 				5297570C1DB4F249008B0E63 /* AppDelegate.m */,
@@ -288,6 +301,7 @@
 			files = (
 				529757101DB4F249008B0E63 /* ViewController.m in Sources */,
 				5297570D1DB4F249008B0E63 /* AppDelegate.m in Sources */,
+				5223B7151DDAB24000461828 /* YDSlider.m in Sources */,
 				5295BA581DD42AF200841725 /* LightLoadingView.m in Sources */,
 				5297570A1DB4F249008B0E63 /* main.m in Sources */,
 			);

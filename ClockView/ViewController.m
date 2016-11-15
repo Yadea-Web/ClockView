@@ -8,8 +8,9 @@
 
 #import "ViewController.h"
 #import "LightLoadingView.h"
+#import "YDSlider.h"
 
-@interface ViewController ()
+@interface ViewController () <YDSliderDelegate>
 
 @property (nonatomic, strong) LightLoadingView *lightLoading1;
 @property (nonatomic, strong) LightLoadingView *lightLoading2;
@@ -25,10 +26,37 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     [self.view addSubview:self.lightLoading1];
-    [self.lightLoading1 infineLoop];
     [self.view addSubview:self.lightLoading2];
     [self.view addSubview:self.lightLoading3];
     [self.view addSubview:self.lightLoading4];
+    [self.lightLoading4 infineLoop];
+    
+    YDSlider *slider1 = [[YDSlider alloc] initWithFrame:CGRectMake(20, 350, 300, 40) indexLabelType:SLIDER_INDEX_TYPE_CENTER];
+    slider1.delegate = self;
+    slider1.tag = 1;
+    slider1.minimumValue = 0;
+    slider1.maximumValue = 100;
+    slider1.minimumTrackTintColor = [self colorWithRGBValue:0xC9E4DA];
+    slider1.maximumTrackTintColor = [self colorWithRGBValue:0x008C5E];
+    [self.view addSubview:slider1];
+    
+    YDSlider *slider2 = [[YDSlider alloc] initWithFrame:CGRectMake(20, 400, 300, 40) indexLabelType:SLIDER_INDEX_TYPE_CENTER];
+    slider2.delegate = self;
+    slider2.tag = 2;
+    slider2.minimumValue = 0;
+    slider2.maximumValue = 100;
+    slider2.minimumTrackTintColor = [self colorWithRGBValue:0xBFCAE6];
+    slider2.maximumTrackTintColor = [self colorWithRGBValue:0x103667];
+    [self.view addSubview:slider2];
+    
+    YDSlider *slider3 = [[YDSlider alloc] initWithFrame:CGRectMake(20, 450, 300, 40) indexLabelType:SLIDER_INDEX_TYPE_CENTER];
+    slider3.delegate = self;
+    slider3.tag = 3;
+    slider3.minimumValue = 0;
+    slider3.maximumValue = 100;
+    slider3.minimumTrackTintColor = [self colorWithRGBValue:0xFCD9C4];
+    slider3.maximumTrackTintColor = [self colorWithRGBValue:0x8E1E20];
+    [self.view addSubview:slider3];
 }
 
 - (void)changeProgress {
@@ -73,6 +101,19 @@
     uint b = (value & 0x000000FF);
     
     return [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1.0];
+}
+
+#pragma mark - YDSliderDelegate
+
+- (void)sliderValueChanged:(YDSlider *)slider {
+    CGFloat value = slider.value / 100;
+    if (slider.tag == 1) {
+        [self.lightLoading1 setProgressValue:value];
+    } else if (slider.tag == 2) {
+        [self.lightLoading2 setProgressValue:value];
+    } else if (slider.tag == 3) {
+        [self.lightLoading3 setProgressValue:value];
+    }
 }
 
 @end
