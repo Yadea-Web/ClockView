@@ -14,14 +14,17 @@
 
 @property (nonatomic, strong) UIColor      *tintColor;
 @property (nonatomic, strong) UIColor      *selectedColor;
-@property (nonatomic, assign) CGFloat    selectedValue;
+@property (nonatomic, assign) CGFloat      selectedValue;
 
 @property (nonatomic, strong) CAShapeLayer *selectedCircleLayer;
 @property (nonatomic, strong) CAShapeLayer *selectedLightLayer;
 @property (nonatomic, strong) CAShapeLayer *pointLayer;
 
-@property (nonatomic, assign) BOOL animated;
+@property (nonatomic, assign) BOOL         animated;
+@property (nonatomic, assign) BOOL         isInfineLoop;
 @property (nonatomic, assign) CGRect viewFrame;
+
+@property (nonatomic, strong) UILabel *progressLabel;
 
 @end
 
@@ -64,6 +67,7 @@
 }
 
 - (void)infineLoop {
+    self.isInfineLoop = YES;
     [self setProgressValue:0.0];
     [NSTimer scheduledTimerWithTimeInterval:kTimeDuration
                                         target:self
@@ -110,6 +114,22 @@
         [self.layer addSublayer:_selectedLightLayer];
     }
     return _selectedLightLayer;
+}
+
+- (UILabel *)progressLabel {
+    if (!_progressLabel) {
+        CGFloat radius = self.viewFrame.size.width / 2;
+        _progressLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, radius, radius)];
+        _progressLabel.center = CGPointMake(radius, radius);
+        _progressLabel.textColor = self.selectedColor;
+        _progressLabel.textAlignment = NSTextAlignmentCenter;
+        [self addSubview:_progressLabel];
+    }
+    return _progressLabel;
+}
+
+- (void)setProgressLabelFont:(UIFont *)progressLabelFont {
+    self.progressLabel.font = progressLabelFont;
 }
 
 - (void)drawRect:(CGRect)rect {
@@ -262,6 +282,9 @@
         self.pointLayer.affineTransform = CGAffineTransformMakeRotation(angle);
     }
     self.pointLayer.path = pointPath.CGPath;
+    if (!self.isInfineLoop) {
+        self.progressLabel.text = [NSString stringWithFormat:@"%.0f", value * 100];
+    }
 }
 
 @end

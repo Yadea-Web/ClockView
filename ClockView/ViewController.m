@@ -83,6 +83,7 @@
     if (!_lightLoading3) {
         _lightLoading3= [[LightLoadingView alloc] initLightLoadingViewWithFrame:CGRectMake(10, 170, 100, 100) tintColor:[self colorWithRGBValue:0xFCD9C4] selectedColor:[self colorWithRGBValue:0x8E1E20] value:0.2 animated:YES];
         _lightLoading3.backgroundColor = [UIColor whiteColor];
+        _lightLoading3.progressLabelFont = [UIFont systemFontOfSize:12];
     }
     return _lightLoading3;
 }

@@ -11,6 +11,11 @@
 @interface LightLoadingView : UIView
 
 /**
+ 设置进度值的显示的字体大小
+ */
+@property (nonatomic, strong) UIFont *progressLabelFont;
+
+/**
  @param frame 坐标
  @param tintColor 一般状态下的颜色
  @param selectedColor 经过的进度条的颜色
